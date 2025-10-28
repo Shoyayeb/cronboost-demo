@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Github, Twitter, Linkedin, Mail } from "lucide-react";
+import { Newsletter } from "@/components/forms/Newsletter";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -74,39 +75,48 @@ export function Footer() {
             </ul>
           </motion.div>
 
-          {/* Social */}
+          {/* Newsletter */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-white font-semibold mb-4">Connect</h3>
-            <div className="flex gap-3">
-              {[
-                { icon: Twitter, href: "#", label: "Follow us on Twitter" },
-                { icon: Github, href: "#", label: "View our GitHub profile" },
-                { icon: Linkedin, href: "#", label: "Connect on LinkedIn" },
-                { icon: Mail, href: "#", label: "Send us an email" },
-              ].map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  className="w-10 h-10 rounded-lg bg-white/5 backdrop-blur-xl border border-white/10 hover:border-blue-500/50 flex items-center justify-center transition-all duration-300 group"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-4 h-4 text-zinc-400 group-hover:text-blue-400 transition-colors" aria-hidden="true" />
-                </a>
-              ))}
-            </div>
+            <h3 className="text-white font-semibold mb-4">Stay Updated</h3>
+            <Newsletter />
           </motion.div>
         </div>
+
+        {/* Social links */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="flex justify-center gap-3 mb-8"
+        >
+          {[
+            { icon: Twitter, href: "#", label: "Follow us on Twitter" },
+            { icon: Github, href: "#", label: "View our GitHub profile" },
+            { icon: Linkedin, href: "#", label: "Connect on LinkedIn" },
+            { icon: Mail, href: "#", label: "Send us an email" },
+          ].map((social, index) => (
+            <a
+              key={index}
+              href={social.href}
+              className="w-10 h-10 rounded-lg bg-white/5 backdrop-blur-xl border border-white/10 hover:border-blue-500/50 flex items-center justify-center transition-all duration-300 group"
+              aria-label={social.label}
+            >
+              <social.icon className="w-4 h-4 text-zinc-400 group-hover:text-blue-400 transition-colors" aria-hidden="true" />
+            </a>
+          ))}
+        </motion.div>
 
         {/* Bottom bar */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
           viewport={{ once: true }}
           className="pt-8 border-t border-white/10"
         >
